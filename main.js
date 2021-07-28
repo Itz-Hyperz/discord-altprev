@@ -32,16 +32,24 @@ class naughty {
                 // Ban Le Memboro
                 await guildMember.guild.members.ban(guildMember.user.id, {
                     reason: `Alt Account`
-                }).catch(e => { console.log(chalk.red(`Something went wrong when trying to ban ${guildMember.user.tag} from ${guildMember.guild.name} `), e.stack) });
+                }).catch(e => {
+                    console.log(chalk.red(`Something went wrong when trying to ban ${guildMember.user.tag} from ${guildMember.guild.name} `), e.stack)
+                    return false; // A variable to return if a user was removed or not
+                });
                 if(this.debugMode) {
                     console.log(chalk.blue(`${guildMember.user.tag} has been banned from ${guildMember.guild.name}`))
                 }
+                return true; // A variable to return if a user was removed or not
             } else {
                 // Kick Le Memboro
-                await guildMember.guild.member(guildMember).kick().catch(e => { console.log(chalk.red(`Something went wrong when trying to kick ${guildMember.user.tag} from ${guildMember.guild.name} `), e.stack) });
+                await guildMember.guild.member(guildMember).kick().catch(e => {
+                    console.log(chalk.red(`Something went wrong when trying to kick ${guildMember.user.tag} from ${guildMember.guild.name} `), e.stack)
+                    return false; // A variable to return if a user was removed or not
+                });
                 if(this.debugMode) {
                     console.log(chalk.blue(`${guildMember.user.tag} has been kicked from ${guildMember.guild.name}`))
                 }
+                return true; // A variable to return if a user was removed or not
             }
         }
 

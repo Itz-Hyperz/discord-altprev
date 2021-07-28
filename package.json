@@ -1,6 +1,6 @@
 {
   "name": "discord-altprev",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple alt prevention check module for DiscordJSV12.",
   "main": "main.js",
   "scripts": {
